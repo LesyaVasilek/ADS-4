@@ -15,7 +15,7 @@ int countPairs2(int* arr, int len, int value) {
     int search = 0;
     for (int i = 0; i < len; i++) {
         for (int j = len; j > i; j--) {
-            if (*(arr + i) + *(arr + j) == value){
+            if (*(arr + i) + *(arr + j) == value) {
               search++;
             }
         }
@@ -23,25 +23,25 @@ int countPairs2(int* arr, int len, int value) {
     return search;
 }
 int binerySearch(int* arr, int size, int value, int n) {
-    int ror = size;
-    int lol = n;
+    int e = size;
+    int l = n;
     int search = 0;
-    while (lol < ror - 1) {
-        int sror = (lol + ror) / 2;
-        if (*(arr + n)  + *(arr + sror) == value) {
+    while (l < e - 1) {
+        int o = (l + e) / 2;
+        if (*(arr + n)  + *(arr + o) == value) {
             search++;
             int i = 1;
-            for (; *(arr + n) + *(arr + sror - i) == value && (sror - i) > lol; i++)
+            for (; *(arr + n) + *(arr + o - i) == value && (o - i) > l; i++)
                 search++;
             i = 1;
-            for (; *(arr + n) + *(arr + sror + i) == value && (sror + i) < ror; i++)
+            for (; *(arr + n) + *(arr + o + i) == value && (o + i) < e; i++)
                 search++;
             break;
         }
-        if (*(arr + n) + *(arr + sror) > value) {
-            ror = sror;
+        if (*(arr + n) + *(arr + o) > value) {
+            e = o;
         } else {
-            lol = sror;
+            l = o;
         }
     }
     return search;
